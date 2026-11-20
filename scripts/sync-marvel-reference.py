@@ -6,8 +6,9 @@ Usage: scripts/sync-marvel-reference.py <path-to-marvel-checkout>
 marvel commits its reference as Markdown under docs/reference/, one file per
 command, generated from the cobra tree. This script turns each file into a
 Starlight page: it adds the title front matter Starlight needs, drops the
-duplicate top heading, moves the remaining headings up one level, and points
-the cross-links at the site's own paths. It also rewrites public/llms.txt and
+duplicate top heading, moves the remaining headings up one level, points the
+cross-links at the site's own paths, and removes pages for commands marvel no
+longer has. It also rewrites public/llms.txt and
 reference-source.txt, which records the marvel commit the copy came from.
 
 Set MARVEL_COMMIT to record a commit other than the checkout's HEAD (for a
@@ -65,6 +66,14 @@ def main():
         title, summary, page = convert(f.name, f.read_text())
         (OUT / f.name).write_text(page)
         pages.append((f.stem, title, summary))
+
+    # A command marvel no longer has leaves its page behind: remove the copies
+    # this script wrote earlier that the source no longer carries.
+    kept = {f.name for f in files}
+    stale = sorted(p for p in OUT.glob("marvel*.md") if p.name not in kept)
+    for p in stale:
+        p.unlink()
+        print(f"removed stale page {p.name}")
 
     llms = ["# ArcavenAE documentation", ""]
     llms += ["> Guides and references for the ArcavenAE projects. Paths are relative to the site root.", ""]
