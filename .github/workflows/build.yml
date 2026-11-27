@@ -27,8 +27,37 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Fetch the Montserrat 500 font (pinned URL, sha256 checked)
+        env:
+          # Source: the @fontsource/montserrat 5.2.5 package files on jsDelivr (the
+          # font and its OFL license text), pinned by version. The sha256 values
+          # are empty until a reviewer reads them from the first run's log and a
+          # later commit pins them; with a value set, a mismatch fails the build.
+          FONT_URL: https://cdn.jsdelivr.net/npm/@fontsource/montserrat@5.2.5/files/montserrat-latin-500-normal.woff2
+          FONT_SHA256: ''
+          OFL_URL: https://cdn.jsdelivr.net/npm/@fontsource/montserrat@5.2.5/LICENSE
+          OFL_SHA256: ''
+        run: |
+          set -euo pipefail
+          mkdir -p public/fonts
+          curl --fail --silent --show-error --location --output public/fonts/montserrat-500.woff2 "$FONT_URL"
+          curl --fail --silent --show-error --location --output public/fonts/OFL.txt "$OFL_URL"
+          check() {
+            got=$(sha256sum "$1" | cut -d' ' -f1)
+            echo "sha256 $1 $got"
+            if [ -n "$2" ] && [ "$2" != "$got" ]; then
+              echo "sha256 mismatch for $1: want $2" >&2
+              exit 1
+            fi
+          }
+          check public/fonts/montserrat-500.woff2 "$FONT_SHA256"
+          check public/fonts/OFL.txt "$OFL_SHA256"
+
       - name: Install dependencies
         run: npm ci --no-audit --no-fund
 
       - name: Build
         run: npm run build
+
+      - name: Check the license text ships with the font
+        run: test -s dist/fonts/OFL.txt && test -s dist/fonts/montserrat-500.woff2
