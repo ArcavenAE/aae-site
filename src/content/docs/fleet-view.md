@@ -62,7 +62,7 @@ The column list decides what prints, so keep `cluster` in it. Without it the row
 - It only reads. Every command that changes something still names one cluster.
 - Clusters are read in parallel, each under its own 10 second timer. One that fails does not hide the rows of the others.
 - Each cluster's outcome is reported, for example `answered`, `unreachable`, `no_answer_in_time` or `auth_refused`. On a terminal, or with `--header`, a summary table above the sessions covers the clusters that answered, with a total row; the rest keep a status line each.
-- The exit code is 0 when every cluster answered and 10 when only some did. See [marvel get](/reference/marvel_get/) for the other codes and the `-o json` form.
+- The exit code is 0 when every cluster answered. It is 10 when some answered and some did not, or when any cluster is still starting. When none answered and every failure gives the same code, that code is the exit code: 5 unusable answer, 6 unreachable, 7 no answer in time, 8 authentication refused, 9 host key. It is 11 when none answered and the codes differ. For the `-o json` form, which exits with the same code as the table, see [marvel get](/reference/marvel_get/).
 - Run it from your own shell. It is refused inside a marvel seat, and it cannot be combined with `--socket` or `--identity`.
 
 ## Host memory across clusters
