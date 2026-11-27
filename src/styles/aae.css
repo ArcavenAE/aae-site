@@ -1,0 +1,100 @@
+/* Dark Atelier theme. Dark only: there is no light block. Tokens follow the style brief. */
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/montserrat-500.woff2') format('woff2');
+}
+
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --aae-bg: #05080d;
+  --aae-bg-raised: #0b0f15;
+  --aae-panel-a: #1b2128;
+  --aae-panel-b: #0b0e12;
+  --aae-bevel: #3b444d;
+  --aae-steel-hi: #9aa3ab;
+  --aae-steel-lo: #3a424a;
+  --aae-text: #d8dde2;
+  --aae-text-muted: #8f9aa6;
+  --aae-accent: #1e8bff;
+  --aae-accent-soft: #6fa8e0;
+  --aae-accent-hot: #74e4fe;
+  --aae-core: #e6f2ff;
+  --aae-chip-bg: #071a30;
+
+  --sl-color-white: #f1f5f8;
+  --sl-color-gray-1: #e4e9ed;
+  --sl-color-gray-2: var(--aae-text);
+  --sl-color-gray-3: var(--aae-steel-hi);
+  --sl-color-gray-4: #5f6a76;
+  --sl-color-gray-5: #2a323b;
+  --sl-color-gray-6: #12171d;
+  --sl-color-black: var(--aae-bg);
+  --sl-color-accent-low: var(--aae-chip-bg);
+  --sl-color-accent: var(--aae-accent);
+  --sl-color-accent-high: var(--aae-accent-soft);
+  --sl-color-bg-sidebar: var(--aae-bg-raised);
+  --sl-color-bg-nav: var(--aae-bg);
+  --sl-color-hairline: #2a323b;
+
+  --aae-wordmark-font: 'Montserrat', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* The wordmark and small labels: spaced caps. Not used for headings in prose. */
+.site-title,
+.sl-container .group-label,
+.hero .tagline-kicker {
+  font-family: var(--aae-wordmark-font);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.site-title {
+  background: linear-gradient(to bottom, var(--aae-steel-hi), var(--aae-steel-lo));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--aae-steel-hi);
+}
+
+.sidebar-content .large {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--aae-text-muted);
+}
+
+/* Trace dividers: a 1.4 px core with a soft glow under it. CSS only, no images. */
+.sl-markdown-content hr {
+  border: 0;
+  height: 1.4px;
+  background: var(--aae-accent);
+  box-shadow: 0 0 6px 1px rgba(30, 139, 255, 0.7);
+}
+
+.sl-markdown-content h2::after {
+  content: '';
+  display: block;
+  margin-top: 0.4rem;
+  width: min(100%, 12rem);
+  height: 1.4px;
+  background: var(--aae-accent);
+  box-shadow: 0 0 6px 1px rgba(30, 139, 255, 0.7);
+}
+
+:focus-visible {
+  outline: 2px solid var(--aae-accent);
+  outline-offset: 2px;
+}
+
+.aae-org-line {
+  margin-top: 1rem;
+  font-size: var(--sl-text-sm);
+  color: var(--aae-text-muted);
+}

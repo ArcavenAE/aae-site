@@ -26,3 +26,7 @@ The site builds in CI (`.github/workflows/build.yml`). Do not run `npm` on a fle
 ## Not here yet
 
 The site address, hosting and media are not set up. `astro.config.mjs` sets no `site` or `base` until the address is chosen.
+
+## Theme
+
+The look is dark only (the theme picker is removed and `astro.config.mjs` forces the dark attribute). Tokens and the type rules are in `src/styles/aae.css`. The favicon, `public/favicon.svg`, is a plain SVG monogram; no logo PNG is stored or served here. The wordmark face is Montserrat 500, fetched by the CI build from a pinned URL into `public/fonts/` together with its OFL license text, and checked against a pinned sha256. The files are not committed. The wordmark falls back to the system sans stack only if the font file is missing.

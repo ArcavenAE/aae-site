@@ -6,10 +6,24 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
   integrations: [
     starlight({
-      title: 'ArcavenAE',
+      title: 'DARKATELIER',
       description: 'Guides and references for the ArcavenAE projects.',
+      favicon: '/favicon.svg',
+      customCss: ['./src/styles/aae.css'],
+      // Dark only: set the stored choice and the attribute before first paint.
+      head: [
+        {
+          tag: 'script',
+          content:
+            "try{localStorage.setItem('starlight-theme','dark')}catch(e){}document.documentElement.dataset.theme='dark';",
+        },
+      ],
+      components: {
+        ThemeSelect: './src/components/NoThemeSelect.astro',
+        Footer: './src/components/Footer.astro',
+      },
       sidebar: [
-        { label: 'Start here', items: [{ slug: 'e1-tour' }] },
+        { label: 'Start here', items: [{ slug: 'e1-tour' }, { slug: 'about' }] },
         { label: 'marvel command reference', items: [{ autogenerate: { directory: 'reference' } }] },
       ],
     }),
