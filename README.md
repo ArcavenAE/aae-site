@@ -21,11 +21,15 @@ Run it against a marvel checkout at the commit you want, then commit the result.
 
 ## Build
 
-The site builds in CI (`.github/workflows/build.yml`). Do not run `npm` on a fleet host; build on a machine that is not part of the agent fleet, or read the CI result. CI installs from the committed `package-lock.json` with `npm ci`, so a dependency change needs a matching lockfile made off the fleet.
+The site builds in CI (`.github/workflows/site.yml`) on every pull request and on main. The build checks internal links and dry-runs the deploy without a token. Do not run `npm` on a fleet host; build on a machine that is not part of the agent fleet, or read the CI result. CI installs from the committed `package-lock.json` with `npm ci`, so a dependency change needs a matching lockfile made off the fleet. Both jobs block outbound traffic except the hosts the workflow lists, so a new host needs a change there.
+
+## Deploy
+
+The same workflow publishes the built site to <https://docs.darkatelier.org> as a static-assets Cloudflare Worker named `aae-site` (`wrangler.jsonc`). The deploy job runs only from main, on a push or a manual run, and only while the repository variable `CF_READY` is `true`. It uses the `production` environment, the secret `CLOUDFLARE_API_TOKEN` and the variable `CLOUDFLARE_ACCOUNT_ID`. The build job packs its installed `node_modules` for it, so the deploy job installs nothing. The `wrangler` version in `package.json` and `wranglerVersion` in the workflow must match.
 
 ## Not here yet
 
-The site address, hosting and media are not set up. `astro.config.mjs` sets no `site` or `base` until the address is chosen.
+Media hosting and pull request previews are not set up.
 
 ## Theme
 
