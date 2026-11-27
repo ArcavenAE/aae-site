@@ -21,7 +21,7 @@ Run it against a marvel checkout at the commit you want, then commit the result.
 
 ## Build
 
-The site builds in CI (`.github/workflows/build.yml`). Do not run `npm` on a fleet host; build on a machine that is not part of the agent fleet, or read the CI result. No lockfile is committed yet: the first CI build uploads the one it resolved as an artifact, and a follow-up PR adds it, after which CI switches to `npm ci`.
+The site builds in CI (`.github/workflows/build.yml`). Do not run `npm` on a fleet host; build on a machine that is not part of the agent fleet, or read the CI result. CI installs from the committed `package-lock.json` with `npm ci`, so a dependency change needs a matching lockfile made off the fleet.
 
 ## Not here yet
 

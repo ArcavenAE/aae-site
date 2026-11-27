@@ -27,18 +27,8 @@ jobs:
         with:
           node-version: '22'
 
-      # No lockfile is committed yet. The first CI build creates one here and
-      # uploads it, so a follow-up pull request can add it; after that this
-      # step becomes `npm ci`.
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        run: npm ci --no-audit --no-fund
 
       - name: Build
         run: npm run build
-
-      - name: Keep the lockfile this build resolved
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
-        with:
-          name: package-lock
-          path: package-lock.json
-          if-no-files-found: error
