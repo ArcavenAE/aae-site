@@ -1,0 +1,84 @@
+# ArcavenAE documentation
+
+> Guides and references for the ArcavenAE projects. Paths are relative to the site root.
+
+## Guides
+
+- [marvel in two minutes](/e1-tour/): the core loop, step by step
+
+## marvel command reference
+
+- [marvel](/reference/marvel/): Agent orchestration control plane
+- [marvel attach](/reference/marvel_attach/): Open a session's tmux pane by desk number, session key or name
+- [marvel backend](/reference/marvel_backend/): Inspect the model backend sessions are running on
+- [marvel backend verify](/reference/marvel_backend_verify/): Name each session's backend and report any disagreement
+- [marvel bus](/reference/marvel_bus/): Inspect the cluster's message bus
+- [marvel bus audit](/reference/marvel_bus_audit/): Read one record from the broker's audit log by number
+- [marvel bus leaf](/reference/marvel_bus_leaf/): Connect or disconnect the local broker's leaf link to the hub
+- [marvel bus leaf connect](/reference/marvel_bus_leaf_connect/): Attach the leaf to the hub without bouncing the broker
+- [marvel bus leaf disconnect](/reference/marvel_bus_leaf_disconnect/): Detach the leaf from the hub without bouncing the broker
+- [marvel bus status](/reference/marvel_bus_status/): Show the broker: pid, listener, readiness, hub leaf link
+- [marvel capture](/reference/marvel_capture/): Capture a session's pane content
+- [marvel config](/reference/marvel_config/): Manage marvel cluster configuration
+- [marvel config add-cluster](/reference/marvel_config_add-cluster/): Add or update a cluster
+- [marvel config current](/reference/marvel_config_current/): Show the current cluster
+- [marvel config list](/reference/marvel_config_list/): List configured clusters
+- [marvel config remove-cluster](/reference/marvel_config_remove-cluster/): Remove a cluster
+- [marvel config repoint](/reference/marvel_config_repoint/): Move a cluster to a new address, carrying its host key trust over when the key matches
+- [marvel config tmux-server](/reference/marvel_config_tmux-server/): Print the tmux server name this HOME's daemon uses
+- [marvel config use-cluster](/reference/marvel_config_use-cluster/): Set the current cluster
+- [marvel converge](/reference/marvel_converge/): Release a team (or all teams) from the start-line hold and converge to desired
+- [marvel credential](/reference/marvel_credential/): Manage bus credentials the daemon holds (transient, never persisted)
+- [marvel credential delete](/reference/marvel_credential_delete/): Delete a credential (its value is zeroed)
+- [marvel credential get](/reference/marvel_credential_get/): Show a credential's metadata, or its value with --reveal (local socket only, and only when this cluster's config entry sets allow_credential_reveal: true)
+- [marvel credential list](/reference/marvel_credential_list/): List credentials (metadata only)
+- [marvel credential put](/reference/marvel_credential_put/): Push a bus credential to the daemon (value from --value-file, or - for stdin)
+- [marvel daemon](/reference/marvel_daemon/): Start the marvel daemon
+- [marvel daemon logs](/reference/marvel_daemon_logs/): Print the daemon's recent log lines (over mrvl:// if --cluster is set)
+- [marvel daemon reexec](/reference/marvel_daemon_reexec/): Re-exec the running daemon in place into the binary this command runs from
+- [marvel delete](/reference/marvel_delete/): Delete a resource
+- [marvel describe](/reference/marvel_describe/): Show detailed information about a resource, or the daemon that answers
+- [marvel doctor](/reference/marvel_doctor/): Check this host for what a first run needs
+- [marvel events](/reference/marvel_events/): List recent session/team state-transition events
+- [marvel example](/reference/marvel_example/): Print a manifest the binary carries
+- [marvel exposure](/reference/marvel_exposure/): Record, end or void the functions a slot has read (the clean-room exposure gate)
+- [marvel exposure add](/reference/marvel_exposure_add/): Record that the slot read a function
+- [marvel exposure end](/reference/marvel_exposure_end/): Mark the slot's readings of a function as ended (they still count)
+- [marvel exposure void](/reference/marvel_exposure_void/): Void a wrong record: the gate stops counting it; nothing is deleted (local socket only)
+- [marvel get](/reference/marvel_get/): List resources (sessions, teams, workspaces, endpoints, policies, credentials, budgets, account-readings, account-logins, vitals)
+- [marvel handoff](/reference/marvel_handoff/): Hand a seat's work to its successor through the daemon
+- [marvel handoff put](/reference/marvel_handoff_put/): Write this seat's handoff through the daemon (text on stdin)
+- [marvel hibernate](/reference/marvel_hibernate/): Sign off the named teams, end every seat, and hold the teams until a wake
+- [marvel inject](/reference/marvel_inject/): Send keystrokes to a session's pane (executive privilege)
+- [marvel keys](/reference/marvel_keys/): Manage SSH keys for marvel clients and the daemon
+- [marvel keys authorize](/reference/marvel_keys_authorize/): Authorize a client's public key on this daemon
+- [marvel keys authorized](/reference/marvel_keys_authorized/): List clients authorized on this daemon
+- [marvel keys doctor](/reference/marvel_keys_doctor/): Audit (and optionally fix) permissions under ~/.marvel/
+- [marvel keys generate](/reference/marvel_keys_generate/): Generate a new client keypair under ~/.marvel/keys/
+- [marvel keys host-fingerprint](/reference/marvel_keys_host-fingerprint/): Print this daemon's SSH host key fingerprint
+- [marvel keys list](/reference/marvel_keys_list/): List client keypairs under ~/.marvel/keys/
+- [marvel keys revoke](/reference/marvel_keys_revoke/): Revoke a client by fingerprint
+- [marvel keys show](/reference/marvel_keys_show/): Print a client public key (to share with the daemon admin)
+- [marvel keys trust](/reference/marvel_keys_trust/): Trust and record a cluster's host key in ~/.marvel/known_hosts
+- [marvel kill](/reference/marvel_kill/): Kill a session (alias for delete session)
+- [marvel mcp](/reference/marvel_mcp/): MCP servers marvel offers to its seats
+- [marvel mcp handoff](/reference/marvel_mcp_handoff/): Serve the submit_handoff tool over MCP on stdin and stdout
+- [marvel orphans](/reference/marvel_orphans/): List agents heartbeating against session keys this daemon owns with a stale token
+- [marvel plan](/reference/marvel_plan/): Preview the convergence delta per team without spawning (dry run)
+- [marvel reap](/reference/marvel_reap/): List (and with --confirm, destroy) marvel tmux state the daemon does not own
+- [marvel reset-health](/reference/marvel_reset-health/): Clear a role's crash-loop restart count and backoff without deleting the team
+- [marvel resume](/reference/marvel_resume/): Resume a suspended cluster
+- [marvel run-sandboxed](/reference/marvel_run-sandboxed/): Run a command under a sandbox profile the daemon composes, outside this seat's own profile
+- [marvel run](/reference/marvel_run/): Run a one-off agent session
+- [marvel scale](/reference/marvel_scale/): Scale a team role to N replicas
+- [marvel shift](/reference/marvel_shift/): Initiate a rolling shift for a team
+- [marvel status](/reference/marvel_status/): Say whether the cluster is running or suspended
+- [marvel stop](/reference/marvel_stop/): Stop the marvel daemon, leaving agents running
+- [marvel suspend](/reference/marvel_suspend/): Freeze every seat and the tmux server in place
+- [marvel upgrade](/reference/marvel_upgrade/): Upgrade marvel to the latest version
+- [marvel version](/reference/marvel_version/): Print marvel version and channel
+- [marvel view](/reference/marvel_view/): Work with a seat's read-only views
+- [marvel view refresh](/reference/marvel_view_refresh/): Follow a seat's view branch now
+- [marvel wait](/reference/marvel_wait/): Wait for a session to finish (experimental)
+- [marvel wake](/reference/marvel_wake/): Bring hibernated teams back, supervisors first
+- [marvel work](/reference/marvel_work/): Load a manifest and reconcile desired state
