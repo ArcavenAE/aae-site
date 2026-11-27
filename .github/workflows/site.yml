@@ -126,6 +126,8 @@ jobs:
       - name: Dry-run the deploy
         env:
           WRANGLER_HIDE_BANNER: 'true'
+          # Overrides every other metrics setting; the file alone did not stop a call.
+          WRANGLER_SEND_METRICS: 'false'
         run: ./node_modules/.bin/wrangler deploy --dry-run
 
   # Deploys only from main, and only while the repository variable CF_READY is
@@ -172,6 +174,7 @@ jobs:
         env:
           npm_config_offline: 'true'
           WRANGLER_HIDE_BANNER: 'true'
+          WRANGLER_SEND_METRICS: 'false'
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
