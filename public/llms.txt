@@ -45,7 +45,7 @@
 - [marvel exposure add](/reference/marvel_exposure_add/): Record that the slot read a function
 - [marvel exposure end](/reference/marvel_exposure_end/): Mark the slot's readings of a function as ended (they still count)
 - [marvel exposure void](/reference/marvel_exposure_void/): Void a wrong record: the gate stops counting it; nothing is deleted (local socket only)
-- [marvel get](/reference/marvel_get/): List resources (sessions, teams, workspaces, endpoints, policies, credentials, budgets)
+- [marvel get](/reference/marvel_get/): List resources (sessions, teams, workspaces, endpoints, policies, credentials, budgets, account-readings, account-logins, vitals)
 - [marvel handoff](/reference/marvel_handoff/): Hand a seat's work to its successor through the daemon
 - [marvel handoff put](/reference/marvel_handoff_put/): Write this seat's handoff through the daemon (text on stdin)
 - [marvel hibernate](/reference/marvel_hibernate/): Sign off the named teams, end every seat, and hold the teams until a wake
@@ -68,6 +68,7 @@
 - [marvel reap](/reference/marvel_reap/): List (and with --confirm, destroy) marvel tmux state the daemon does not own
 - [marvel reset-health](/reference/marvel_reset-health/): Clear a role's crash-loop restart count and backoff without deleting the team
 - [marvel resume](/reference/marvel_resume/): Resume a suspended cluster
+- [marvel run-sandboxed](/reference/marvel_run-sandboxed/): Run a command under a sandbox profile the daemon composes, outside this seat's own profile
 - [marvel run](/reference/marvel_run/): Run a one-off agent session
 - [marvel scale](/reference/marvel_scale/): Scale a team role to N replicas
 - [marvel shift](/reference/marvel_shift/): Initiate a rolling shift for a team

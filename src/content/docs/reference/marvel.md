@@ -34,7 +34,7 @@ Agent orchestration control plane
 * [marvel events](/reference/marvel_events/)	 - List recent session/team state-transition events
 * [marvel example](/reference/marvel_example/)	 - Print a manifest the binary carries
 * [marvel exposure](/reference/marvel_exposure/)	 - Record, end or void the functions a slot has read (the clean-room exposure gate)
-* [marvel get](/reference/marvel_get/)	 - List resources (sessions, teams, workspaces, endpoints, policies, credentials, budgets)
+* [marvel get](/reference/marvel_get/)	 - List resources (sessions, teams, workspaces, endpoints, policies, credentials, budgets, account-readings, account-logins, vitals)
 * [marvel handoff](/reference/marvel_handoff/)	 - Hand a seat's work to its successor through the daemon
 * [marvel hibernate](/reference/marvel_hibernate/)	 - Sign off the named teams, end every seat, and hold the teams until a wake
 * [marvel inject](/reference/marvel_inject/)	 - Send keystrokes to a session's pane (executive privilege)
@@ -47,6 +47,7 @@ Agent orchestration control plane
 * [marvel reset-health](/reference/marvel_reset-health/)	 - Clear a role's crash-loop restart count and backoff without deleting the team
 * [marvel resume](/reference/marvel_resume/)	 - Resume a suspended cluster
 * [marvel run](/reference/marvel_run/)	 - Run a one-off agent session
+* [marvel run-sandboxed](/reference/marvel_run-sandboxed/)	 - Run a command under a sandbox profile the daemon composes, outside this seat's own profile
 * [marvel scale](/reference/marvel_scale/)	 - Scale a team role to N replicas
 * [marvel shift](/reference/marvel_shift/)	 - Initiate a rolling shift for a team
 * [marvel status](/reference/marvel_status/)	 - Say whether the cluster is running or suspended
