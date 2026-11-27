@@ -1,16 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="40 0 260 320" role="img" aria-labelledby="t d">
-<title id="t">Dark Atelier</title><desc id="d">A slate raven with three lit traces.</desc>
-<defs><filter id="glow" filterUnits="userSpaceOnUse" x="40" y="0" width="260" height="320"><feGaussianBlur stdDeviation="3"/></filter><radialGradient id="node" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#e6f2ff"/><stop offset="1" stop-color="#1e8bff"/></radialGradient></defs>
-<polygon points="160,22 188,10 238,34 204,42 192,66 204,96 246,150 300,236 306,280 270,262 228,240 214,262 222,306 180,306 188,262 160,226 132,176 122,128 128,94 152,62" fill="#2b3341" stroke="#4b576a" stroke-width="1" stroke-linejoin="round"/>
-<line x1="134" y1="112" x2="262" y2="214" stroke="#05080d" stroke-width="3"/>
-<line x1="140" y1="142" x2="276" y2="240" stroke="#05080d" stroke-width="3"/>
-<line x1="152" y1="178" x2="280" y2="262" stroke="#05080d" stroke-width="3"/>
-<line x1="152" y1="62" x2="198" y2="70" stroke="#05080d" stroke-width="3"/>
-<circle cx="190" cy="36" r="4" fill="#05080d" stroke="#1e8bff" stroke-width="1.4"/><circle cx="190" cy="36" r="1.6" fill="#e6f2ff"/>
-<path d="M128 146L110 146 L100 156L100 158 L90 168L52 168" fill="none" stroke="#1e8bff" stroke-width="1.4" stroke-linecap="round"/>
-<circle cx="52" cy="168" r="4" fill="url(#node)"/>
-<path d="M132 176L80 176 L70 186L70 186 L60 196L34 196" fill="none" stroke="#1e8bff" stroke-width="1.4" stroke-linecap="round"/>
-<circle cx="34" cy="196" r="4" fill="url(#node)"/>
-<path d="M168 240L138 240 L128 250L128 252 L118 262L88 262" fill="none" stroke="#1e8bff" stroke-width="1.4" stroke-linecap="round"/>
-<circle cx="88" cy="262" r="4" fill="url(#node)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-labelledby="t d">
+<title id="t">Dark Atelier</title><desc id="d">A chamfered letter D in blue outline on a near-black square.</desc>
+<rect width="32" height="32" rx="4" fill="#05080d"/>
+<path d="M9 7 H19 L25 13 V19 L19 25 H9 Z" fill="none" stroke="#1e8bff" stroke-width="2.4" stroke-linejoin="miter"/>
 </svg>

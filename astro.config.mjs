@@ -8,7 +8,6 @@ export default defineConfig({
     starlight({
       title: 'DARKATELIER',
       description: 'Guides and references for the ArcavenAE projects.',
-      logo: { src: './src/assets/aae-mark.svg', alt: '' },
       favicon: '/favicon.svg',
       customCss: ['./src/styles/aae.css'],
       // Dark only: set the stored choice and the attribute before first paint.
