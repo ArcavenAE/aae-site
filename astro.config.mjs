@@ -10,7 +10,7 @@ export default defineConfig({
       description: 'Guides and references for the ArcavenAE projects.',
       sidebar: [
         { label: 'Start here', items: [{ slug: 'e1-tour' }] },
-        { label: 'marvel command reference', autogenerate: { directory: 'reference' } },
+        { label: 'marvel command reference', items: [{ autogenerate: { directory: 'reference' } }] },
       ],
     }),
   ],
