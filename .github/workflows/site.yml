@@ -76,18 +76,6 @@ jobs:
           check public/fonts/montserrat-500.woff2 "$FONT_SHA256"
           check public/fonts/OFL.txt "$OFL_SHA256"
 
-      # TEMPORARY: resolves the new devDependency and keeps the lockfile this run
-      # used. The next commit adds that file and removes these two steps.
-      - name: Resolve the lockfile
-        run: npm install --package-lock-only --ignore-scripts --no-audit --no-fund
-
-      - name: Keep the lockfile this build resolved
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
-        with:
-          name: package-lock
-          path: package-lock.json
-          if-no-files-found: error
-
       - name: Install dependencies
         run: npm ci --ignore-scripts --no-audit --no-fund
 
