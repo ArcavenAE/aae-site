@@ -26,7 +26,7 @@ export default defineConfig({
       },
       sidebar: [
         { label: 'Start here', items: [{ slug: 'e1-tour' }, { slug: 'about' }] },
-        { label: 'Stories', items: [{ slug: 'budgets' }, { slug: 'fleet-view' }] },
+        { label: 'Stories', items: [{ slug: 'handoff' }, { slug: 'budgets' }, { slug: 'fleet-view' }] },
         { label: 'marvel command reference', items: [{ autogenerate: { directory: 'reference' } }] },
       ],
     }),

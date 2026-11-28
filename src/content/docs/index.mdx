@@ -2,6 +2,10 @@
 title: Dark Atelier
 description: Guides and references for the ArcavenAE projects.
 template: splash
+# The browser title alone; without this it reads "Dark Atelier | DARKATELIER".
+head:
+  - tag: title
+    content: Dark Atelier
 hero:
   tagline: Guides and references for the ArcavenAE projects, in one place.
   actions:
@@ -13,12 +17,13 @@ hero:
       variant: minimal
 ---
 
-This site is a first slice. It carries one step-through page, two stories and
+This site is a first slice. It carries one step-through page, three stories and
 the generated command reference for marvel. More projects and guides land by
 pull request.
 
 ## Stories
 
+- [Hand off to a fresh agent before the context runs out](/handoff/)
 - [See what your agents spend, and cap it](/budgets/)
 - [See every agent on every cluster in one view](/fleet-view/)
 
