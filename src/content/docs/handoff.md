@@ -25,7 +25,7 @@ This page was written from marvel's code and docs at commit `38e5b403`. It is re
 
 ## Declare the handoff
 
-A shift replaces a role's agents with new ones. This is the runtime and shift part of a role, taken from marvel's [max-age example](https://github.com/ArcavenAE/marvel/blob/main/examples/auto-shift-max-age.toml) without its comments:
+A shift replaces a role's agents with new ones. This is the runtime and shift part of a role, taken from marvel's [max-age example](https://github.com/ArcavenAE/marvel/blob/38e5b4039b76f20176d5cd45a507b0257b23691e/examples/auto-shift-max-age.toml) without its comments:
 
 ```toml
     [team.role.runtime]
@@ -54,7 +54,7 @@ A shift replaces a role's agents with new ones. This is the runtime and shift pa
 
 The context condition needs `handoff` and `handoff_marker`, and a context reading for the seat. An interactive claude seat reports one through `context_feed = "statusline"`. The age condition is refused on a headless role and on a role with more than one replica.
 
-Support differs by harness. marvel's [feature matrix](https://github.com/ArcavenAE/marvel/blob/main/docs/feature-matrix.md) marks the context condition as partial for codex and opencode, and records no end-to-end measurement of the age condition with a claude seat.
+Support differs by harness. marvel's [feature matrix](https://github.com/ArcavenAE/marvel/blob/38e5b4039b76f20176d5cd45a507b0257b23691e/docs/feature-matrix.md) marks the context condition as partial for codex and opencode, and records no end-to-end measurement of the age condition with a claude seat.
 
 The seat normally writes the file itself, so the role's permissions have to allow that write. A seat that cannot write files on the daemon's host, but can run a command, can use [marvel handoff put](/reference/marvel_handoff_put/).
 
