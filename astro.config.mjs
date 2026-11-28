@@ -2,8 +2,10 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
-// The site address is not chosen yet, so no `site` or `base` is set here.
+// The public address. It sets canonical links and the sitemap; wrangler.jsonc
+// attaches the same hostname.
 export default defineConfig({
+  site: 'https://docs.darkatelier.org',
   integrations: [
     starlight({
       title: 'DARKATELIER',
